@@ -1,4 +1,4 @@
-FROM busybox
+FROM ubuntu:latest
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 COPY binary/filebeat /filebeat

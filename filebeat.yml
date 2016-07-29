@@ -8,14 +8,14 @@ filebeat:
       # For each file found under this path, a harvester is started.
       # Make sure not file is defined twice as this can lead to unexpected behaviour.
       paths:
-        - "-"
+        - "/var/lib/docker/containers/*/*.log"
 
       encoding: utf-8
 
       # Possible options are:
       # * log: Reads every line of the log file (default)
       # * stdin: Reads the standard in
-      type: stdin
+      type: test3
 
       # Optional additional fields. These field can be freely picked
       # to add additional information to the crawled log files for filtering
@@ -30,7 +30,7 @@ filebeat:
       # Scan frequency in seconds.
       # How often these files should be checked for changes. In case it is set
       # to 0s, it is done as often as possible. Default: 10s
-      scan_frequency: 0s
+      scan_frequency:10s
 
       # Defines the buffer size every harvester uses when fetching the file
       #harvester_buffer_size: 16384
@@ -98,7 +98,7 @@ shipper:
   # The name of the shipper that publishes the network data. It can be used to group
   # all the transactions sent by a single shipper in the web interface.
   # If this options is not defined, the hostname is used.
-  #name:
+  name: SHIPPER
 
   # The tags of the shipper are included in their own field with each
   # transaction published. Tags make it easy to group servers by different
